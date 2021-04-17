@@ -24,7 +24,7 @@ class TaskController extends Controller
 
 
         if ($request->status_id) {
-            $tasks  = Task::where('status_id', $request->status_id)->get();
+            $tasks  = Task::where('status_id', $request->status_id)->paginate(3);
             $filterBy = $request->status_id;
         } else {
             $tasks = Task::paginate(3);
